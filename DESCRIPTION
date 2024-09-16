@@ -1,0 +1,25 @@
+Package: shrinkTVPVAR
+Type: Package
+Title: Efficient Bayesian Inference for TVP-VAR-SV Models with
+        Shrinkage
+Version: 0.1.1
+Authors@R: c(
+  person("Peter", "Knaus", email = "peter.knaus@wu.ac.at",
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0001-6498-7084")))
+Maintainer: Peter Knaus <peter.knaus@wu.ac.at>
+Description: Efficient Markov chain Monte Carlo (MCMC) algorithms for fully Bayesian estimation of time-varying parameter vector autoregressive models with shrinkage priors. Details on the algorithms used are provided in  
+  Cadonna et al. (2020) <doi:10.3390/econometrics8020020> and Knaus et al. (2021) <doi:10.18637/jss.v100.i13>.
+License: GPL (>= 2)
+Encoding: UTF-8
+Depends: R (>= 3.3.0)
+RoxygenNote: 7.3.2
+LinkingTo: Rcpp, RcppProgress, RcppArmadillo, shrinkTVP, stochvol
+Imports: Rcpp, shrinkTVP, stochvol, coda, methods, grDevices,
+        RColorBrewer, lattice, zoo
+Suggests: testthat (>= 3.0.0)
+Config/testthat/edition: 3
+NeedsCompilation: yes
+Packaged: 2024-09-13 19:48:33 UTC; Peter
+Author: Peter Knaus [aut, cre] (<https://orcid.org/0000-0001-6498-7084>)
+Repository: CRAN
+Date/Publication: 2024-09-16 09:00:02 UTC
