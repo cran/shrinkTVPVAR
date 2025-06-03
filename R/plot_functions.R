@@ -66,7 +66,7 @@ state_plotter <- function(x, lag = 1, mgp = c(1.5,0.5,0), ylim, ylabs, mains,
   }
 
   if (!missing(ylim)){
-    if ((length(ylim) != 2) | any(sapply(ylim, numeric_input_bad))) {
+    if ((length(ylim) != 2) | any(sapply(ylim, numeric_input_bad_))) {
       stop("ylim must be a vector of length 2 with numeric values")
     }
   }
@@ -110,16 +110,20 @@ state_plotter <- function(x, lag = 1, mgp = c(1.5,0.5,0), ylim, ylabs, mains,
     probs <- c(0.025, 0.25, 0.75, 0.975)
   }
 
+  if ((param_name == "Sigma")){
+    Sigma <- TRUE
+  } else {
+    Sigma <- FALSE
+  }
+
   # If ylim is missing, calculate it based on quantiles
   if (missing (ylim)){
 
     # Have to differentiate between beta and Sigma, as structure is different
-    if ((param_name == "beta")){
-      quants <- apply(x[,,lag,,], c(1, 2, 3), quantile, c(max(probs), min(probs)))
-      Sigma <- FALSE
-    } else {
+    if ((param_name == "Sigma")){
       quants <- apply(x, c(1, 2, 3), quantile, c(max(probs), min(probs)))
-      Sigma <- TRUE
+    } else {
+      quants <- apply(x[,,lag,,], c(1, 2, 3), quantile, c(max(probs), min(probs)))
     }
 
     max_y <- max(quants[1,,,])

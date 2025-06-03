@@ -3,6 +3,7 @@
 #include <math.h>
 #include <shrinkTVP.h>
 #include "shrinkTVP_int.h"
+#include "cpp_utilities.h"
 using namespace Rcpp;
 
 //[[Rcpp::export]]
@@ -440,10 +441,6 @@ List do_shrinkTVPVAR(arma::mat y_orig,
 
     if (do_dat_G) {
 
-      // Import mlag function
-      Environment envir = Environment("package:shrinkTVP");
-      Function mlag = envir["mlag"];
-
       arma::mat y_aug(N + lags, m, arma::fill::zeros);
       int offset = 0;
 
@@ -487,8 +484,7 @@ List do_shrinkTVPVAR(arma::mat y_orig,
       }
 
 
-      Rcpp::NumericMatrix tmp = mlag(y_aug, lags);
-      arma::mat y_lagged = arma::mat(tmp.begin(), y_aug.n_rows, m*lags, true);
+      arma::mat y_lagged = mlag(y_aug, lags);
 
       if (inter){
         arma::vec intercept(y_lagged.n_rows, arma::fill::ones);

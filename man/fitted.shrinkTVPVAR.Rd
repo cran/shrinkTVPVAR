@@ -2,12 +2,12 @@
 % Please edit documentation in R/shrinkTVPVAR_methods.R
 \name{fitted.shrinkTVPVAR}
 \alias{fitted.shrinkTVPVAR}
-\title{Calculate fitted historical values for an estimated TVP-VAR-SV model}
+\title{Calculate fitted historical values for an estimated (D)TVP-VAR-SV model}
 \usage{
 \method{fitted}{shrinkTVPVAR}(object, ...)
 }
 \arguments{
-\item{object}{A \code{shrinkTVPVAR} object}
+\item{object}{A \code{shrinkTVPVAR} or \code{shrinkDTVPVAR} object}
 
 \item{...}{Currently ignored.}
 }
@@ -15,7 +15,7 @@
 An object of class \code{shrinkTVPVAR_fit}
 }
 \description{
-Calculates the fitted values for an estimated TVP-VAR-SV model.
+Calculates the fitted values for an estimated (D)TVP-VAR-SV model.
 }
 \examples{
 \donttest{
@@ -32,6 +32,7 @@ plot(fitted)
 }
 \seealso{
 Other prediction functions: 
+\code{\link{LPDS}()},
 \code{\link{forecast_shrinkTVPVAR}()}
 }
 \author{

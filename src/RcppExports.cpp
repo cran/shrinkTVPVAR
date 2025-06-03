@@ -11,6 +11,25 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// do_shrinkDTVPVAR
+List do_shrinkDTVPVAR(arma::mat y_orig, arma::mat x_orig, std::string mod_type, int niter, int nburn, int nthin, bool display_progress, List TVP_param, List starting_vals);
+RcppExport SEXP _shrinkTVPVAR_do_shrinkDTVPVAR(SEXP y_origSEXP, SEXP x_origSEXP, SEXP mod_typeSEXP, SEXP niterSEXP, SEXP nburnSEXP, SEXP nthinSEXP, SEXP display_progressSEXP, SEXP TVP_paramSEXP, SEXP starting_valsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type y_orig(y_origSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type x_orig(x_origSEXP);
+    Rcpp::traits::input_parameter< std::string >::type mod_type(mod_typeSEXP);
+    Rcpp::traits::input_parameter< int >::type niter(niterSEXP);
+    Rcpp::traits::input_parameter< int >::type nburn(nburnSEXP);
+    Rcpp::traits::input_parameter< int >::type nthin(nthinSEXP);
+    Rcpp::traits::input_parameter< bool >::type display_progress(display_progressSEXP);
+    Rcpp::traits::input_parameter< List >::type TVP_param(TVP_paramSEXP);
+    Rcpp::traits::input_parameter< List >::type starting_vals(starting_valsSEXP);
+    rcpp_result_gen = Rcpp::wrap(do_shrinkDTVPVAR(y_orig, x_orig, mod_type, niter, nburn, nthin, display_progress, TVP_param, starting_vals));
+    return rcpp_result_gen;
+END_RCPP
+}
 // do_shrinkTVPVAR
 List do_shrinkTVPVAR(arma::mat y_orig, arma::mat x_orig, std::string mod_type, int niter, int nburn, int nthin, bool display_progress, List TVP_param, List starting_vals);
 RcppExport SEXP _shrinkTVPVAR_do_shrinkTVPVAR(SEXP y_origSEXP, SEXP x_origSEXP, SEXP mod_typeSEXP, SEXP niterSEXP, SEXP nburnSEXP, SEXP nthinSEXP, SEXP display_progressSEXP, SEXP TVP_paramSEXP, SEXP starting_valsSEXP) {
@@ -32,6 +51,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_shrinkTVPVAR_do_shrinkDTVPVAR", (DL_FUNC) &_shrinkTVPVAR_do_shrinkDTVPVAR, 9},
     {"_shrinkTVPVAR_do_shrinkTVPVAR", (DL_FUNC) &_shrinkTVPVAR_do_shrinkTVPVAR, 9},
     {NULL, NULL, 0}
 };

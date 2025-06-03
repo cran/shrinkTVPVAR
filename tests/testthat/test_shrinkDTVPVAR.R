@@ -1,12 +1,12 @@
-test_bed <- function(args, m, p) {
+test_bed_dyn <- function(args, m, p) {
 
   set.seed(123)
   full_dat <- simTVPVAR(N = 20, m = m, p = p, display_progress = FALSE)
   args$y <- full_dat$data
 
-  res <- do.call(shrinkTVPVAR, args)
+  res <- do.call(shrinkDTVPVAR, args)
 
-  expect_s3_class(res, "shrinkTVPVAR")
+  expect_s3_class(res, "shrinkDTVPVAR")
 
   # Test prediction methods
   expect_s3_class(fitted(res), "shrinkTVPVAR_fit")
@@ -20,7 +20,7 @@ test_bed <- function(args, m, p) {
 
   # Test plot methods
   expect_invisible(plot(res))
-  param_names <- names(res)[!names(res) %in% c("data", "pred_objs")]
+  param_names <- names(res)[!names(res) %in% c("data", "pred_objs", "beta_consts", "psi_consts")]
   for (i in param_names) {
     dev.off()
     if (i == "beta_consts") {
@@ -57,14 +57,17 @@ params <- c(
   "a_xi_adaptive",
   "c_xi_adaptive",
   "a_tau_adaptive",
-  "c_tau_adaptive"
+  "c_tau_adaptive",
+
+  "iid",
+  "adaptive_rho"
 )
 
 for(i in length(scenarios)) {
 
   for (j in params) {
 
-    args <- formals(shrinkTVPVAR)
+    args <- formals(shrinkDTVPVAR)
     args <- args[sapply(args, function(x) x != "")]
 
     if (!grepl("adaptive", j)) {
@@ -100,7 +103,7 @@ for(i in length(scenarios)) {
                      ", p: ", scenarios$p[i],
                      ", m: ", scenarios$m[i],
                      ", toggled: ", j), {
-                       test_bed(args, scenarios$m[i], scenarios$p[i])
+                       test_bed_dyn(args, scenarios$m[i], scenarios$p[i])
                      })
 
   }

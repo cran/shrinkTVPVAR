@@ -2,24 +2,28 @@ Package: shrinkTVPVAR
 Type: Package
 Title: Efficient Bayesian Inference for TVP-VAR-SV Models with
         Shrinkage
-Version: 0.1.1
+Version: 1.0.1
 Authors@R: c(
   person("Peter", "Knaus", email = "peter.knaus@wu.ac.at",
     role = c("aut", "cre"), comment = c(ORCID = "0000-0001-6498-7084")))
 Maintainer: Peter Knaus <peter.knaus@wu.ac.at>
-Description: Efficient Markov chain Monte Carlo (MCMC) algorithms for fully Bayesian estimation of time-varying parameter vector autoregressive models with shrinkage priors. Details on the algorithms used are provided in  
-  Cadonna et al. (2020) <doi:10.3390/econometrics8020020> and Knaus et al. (2021) <doi:10.18637/jss.v100.i13>.
+Description: Efficient Markov chain Monte Carlo (MCMC) algorithms for fully Bayesian estimation of time-varying parameter 
+  vector autoregressive models with stochastic volatility (TVP-VAR-SV) under shrinkage priors and dynamic shrinkage processes. 
+  Details on the TVP-VAR-SV model and the shrinkage priors can be found in Cadonna et al. (2020) <doi:10.3390/econometrics8020020>, 
+  details on the software can be found in Knaus et al. (2021) <doi:10.18637/jss.v100.i13>, while details on the dynamic shrinkage process
+  can be found in Knaus and Frühwirth-Schnatter (2023) <doi:10.48550/arXiv.2312.10487>.
 License: GPL (>= 2)
 Encoding: UTF-8
 Depends: R (>= 3.3.0)
 RoxygenNote: 7.3.2
-LinkingTo: Rcpp, RcppProgress, RcppArmadillo, shrinkTVP, stochvol
-Imports: Rcpp, shrinkTVP, stochvol, coda, methods, grDevices,
-        RColorBrewer, lattice, zoo
+LinkingTo: Rcpp, RcppProgress, RcppArmadillo, shrinkTVP (>= 3.1.0),
+        stochvol
+Imports: Rcpp, shrinkTVP (>= 3.1.0), stochvol, coda, methods,
+        grDevices, RColorBrewer, lattice, zoo, mvtnorm
 Suggests: testthat (>= 3.0.0)
 Config/testthat/edition: 3
 NeedsCompilation: yes
-Packaged: 2024-09-13 19:48:33 UTC; Peter
-Author: Peter Knaus [aut, cre] (<https://orcid.org/0000-0001-6498-7084>)
+Packaged: 2025-06-03 10:10:37 UTC; Peter
+Author: Peter Knaus [aut, cre] (ORCID: <https://orcid.org/0000-0001-6498-7084>)
 Repository: CRAN
-Date/Publication: 2024-09-16 09:00:02 UTC
+Date/Publication: 2025-06-03 13:40:07 UTC

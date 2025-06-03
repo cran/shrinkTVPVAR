@@ -235,7 +235,7 @@ shrinkTVPVAR <- function(y,
 
 
   # Debugging tool
-  do_dat_G = FALSE
+  do_dat_G = F
 
   # Check inputs
   if (!is.matrix(y) && !is.data.frame(y)) {

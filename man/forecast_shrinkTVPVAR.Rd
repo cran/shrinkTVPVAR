@@ -7,7 +7,7 @@
 forecast_shrinkTVPVAR(mod, n.ahead = 1)
 }
 \arguments{
-\item{mod}{an object of class \code{shrinkTVPVAR}, containing the fitted model.}
+\item{mod}{an object of class \code{shrinkTVPVAR} or \code{shrinkDTVPVAR}, containing the fitted model.}
 
 \item{n.ahead}{a single, positive integer indicating the forecasting horizon, i.e. how many time-points into the future
 the posterior predictive distribution should be sampled from. Can not be larger than the number of rows in \code{newdata}.}
@@ -18,7 +18,7 @@ posterior predictive density.
 }
 \description{
 \code{forecast_shrinkTVPVAR} draws from the posterior predictive distribution of a fitted TVP-VAR-SV model resulting from a call to
-\code{shrinkTVPVAR}.
+\code{shrinkTVPVAR} or \code{shrinkDTVPVAR}.
 }
 \examples{
 \donttest{
@@ -36,6 +36,7 @@ plot(forc)
 }
 \seealso{
 Other prediction functions: 
+\code{\link{LPDS}()},
 \code{\link{fitted.shrinkTVPVAR}()}
 }
 \author{

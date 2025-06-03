@@ -10,7 +10,7 @@
 #'
 #' @importFrom graphics par layout plot.new title axis
 #'
-#' @importFrom stats density rnorm quantile runif median
+#' @importFrom stats density rnorm quantile runif median rgamma rpois
 #'
 #' @importFrom methods formalArgs
 #'
@@ -21,6 +21,8 @@
 #' @importFrom RColorBrewer brewer.pal
 #'
 #' @importFrom zoo index
+#'
+#' @importFrom mvtnorm dmvnorm
 #'
 #' @useDynLib shrinkTVPVAR, .registration = TRUE
 #'

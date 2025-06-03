@@ -269,6 +269,10 @@ void shrinkTVP_int(arma::vec y,
     }
   }
 
+  // Weave into centered parameterization again
+  shrinkTVP::to_CP(samples.beta, beta_nc, samples.theta_sr, samples.beta_mean);
+
+
 
   // Random sign switch
   for (int i = 0; i < d; i++) {
@@ -276,7 +280,6 @@ void shrinkTVP_int(arma::vec y,
       samples.theta_sr(i) = -samples.theta_sr(i);
     }
   }
-
 
   // if(mod_type == "triple") {
   //   samples.tau2 = samples.tau2_til;
